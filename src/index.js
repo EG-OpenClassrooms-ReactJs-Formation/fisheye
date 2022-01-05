@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Welcome } from './pages/welcome';
+import { ContactButton } from './components/contact_button';
+import { Photographer } from './pages/photographer';
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+          <Route exact path="/" element={<Welcome/>}></Route>
+            
+          <Route path="/profile/:id"
+          //render={(props) => <Photographer {...props} />}
+          element={<Photographer/>}
+          />
+      </Routes>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
