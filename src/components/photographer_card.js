@@ -13,7 +13,7 @@ const PhotographerCardWrapper = styled.div`
 export function PhotographerCard({ portrait, name, location, citation, price, id }) {
     
     return (
-      <StyledLink to={`/profile/${id}`}>
+      <StyledLink to={`/fisheye/profile/${id}`}>
         <article>
             
           <Picture src={require(`../assets/photographers/Photographers_ID_Photos/${portrait}`)}/>
