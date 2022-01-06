@@ -78,7 +78,7 @@ export function PublicationCard({ id, photographerId, title, image, video, likes
             photographerName != ""?
                 (image != null ?
                 <PublicationContentImage src={require(`../assets/photographers/${photographerName}/${image}`)}/>:
-                <PublicationContentVideo src={require(`../assets/photographers/${photographerName}/${video}`)}/>)
+                <PublicationContentVideo controls src={require(`../assets/photographers/${photographerName}/${video}`)}/>)
                 :
                 null
             }

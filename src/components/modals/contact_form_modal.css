@@ -1,0 +1,28 @@
+
+.modal-wrapper {
+    position: fixed;
+    top: 200px;
+    left: 35%;
+    z-index: 1050;
+    width: 40%;
+    /*height: 100%;*/
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    background-color: #D3573C;
+    padding: 2%;
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+.modal-close-button {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    background-color: #D3573C;
+    opacity: 1;
+    cursor: pointer;
+    border: none;
+}

@@ -14,10 +14,10 @@ const ButtonStyled = styled.button`
     cursor: pointer;
 `
 
-export function ContactButton() {
+export function ContactButton({onClick}) {
     
     return (
-        <ButtonStyled>Contactez-moi</ButtonStyled>
+        <ButtonStyled onClick={onClick}>Contactez-moi</ButtonStyled>
     );
 }
 

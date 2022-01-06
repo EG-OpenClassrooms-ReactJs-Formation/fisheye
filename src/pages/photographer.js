@@ -9,6 +9,9 @@ import logo from '../assets/images/logo.png'
 import { PublicationCard } from '../components/publication_card';
 import { Picture, StyledLink } from '../utils/style/Atoms';
 
+import useModal from '../utils/hooks/useModal';
+import ContactFromModal from '../components/modals/contact_form_modal';
+
 
 const TopSection = styled.div`
     display: flex;
@@ -29,6 +32,8 @@ const CardsContainer = styled.div`
 export function Photographer() {
     const portraitPath = 'assets/photographers'
     const { id: queryId } = useParams()
+
+    const {isShowing, toggle} = useModal()
     //console.log(queryId)
     //console.log(data.media.filter(x => x.photographerId == queryId))
     
@@ -48,8 +53,13 @@ export function Photographer() {
                         <p>{photographerData.city}, {photographerData.country}</p>
                         <p>{photographerData.tagline}</p>
                     </div>
-                    <ContactButton/>
-
+                    <ContactButton onClick={toggle}/>
+                    {/* <button onClick={toggle}>Show Modal</button> */}
+                    <ContactFromModal
+                        isShowing={isShowing}
+                        hide={toggle}
+                        name={photographerData.name}
+                    />
                     <Picture src={require(`../assets/photographers/Photographers_ID_Photos/${photographerData.portrait}`)}/>
                 </TopSection>
 
