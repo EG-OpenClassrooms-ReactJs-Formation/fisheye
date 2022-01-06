@@ -42,7 +42,7 @@ export function Photographer() {
         
         <div className="App">
             <header>
-                <StyledLink to={"/"}>
+                <StyledLink to={"/fisheye/"}>
                     <img src={logo} className="logo" />
                 </StyledLink>
             </header>
