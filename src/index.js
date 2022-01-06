@@ -11,9 +11,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Routes>
-          <Route exact path="/" element={<Welcome/>}></Route>
+          <Route exact path="/fisheye" element={<Welcome/>}></Route>
             
-          <Route path="/profile/:id"
+          <Route path="/fisheye/profile/:id"
           //render={(props) => <Photographer {...props} />}
           element={<Photographer/>}
           />
