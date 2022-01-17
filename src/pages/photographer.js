@@ -43,7 +43,7 @@ const FilterRow = styled.div`
 `
 
 export function Photographer() {
-    const portraitPath = 'assets/photographers'
+    
     const { id: queryId } = useParams()
 
     const {isShowingContact, toggleContact} = useContactModal()
