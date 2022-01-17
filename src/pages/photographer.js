@@ -45,7 +45,7 @@ const FilterRow = styled.div`
 export function Photographer() {
     
     const { id: queryId } = useParams()
-
+    const [idPublication, setIdPublication] = useState(0)
     const {isShowingContact, toggleContact} = useContactModal()
     
     const {isShowingFocus, toggleFocus} = useFocusModal()
@@ -53,6 +53,12 @@ export function Photographer() {
     
     const photographerData = data.photographers.filter(x => x.id == queryId)[0]
     const listPublication = data.media.filter(x => x.photographerId == queryId)
+    console.log(idPublication)
+    function getPublicationId(id) {
+        setIdPublication(id)
+    }
+
+
     return (
         
         <div className="App">
@@ -68,6 +74,7 @@ export function Photographer() {
                         <p>{photographerData.city}, {photographerData.country}</p>
                         <p>{photographerData.tagline}</p>
                     </div>
+
                     <ContactButton onClick={toggleContact}/>
                     {/* <button onClick={toggle}>Show Modal</button> */}
                     <ContactFromModal
@@ -78,8 +85,13 @@ export function Photographer() {
                     <FocusModal
                         isShowing={isShowingFocus}
                         hide={toggleFocus}
-                        id={photographerData.name}
+                        id={photographerData.id}
+                        listPublication={listPublication}
+                        idPublication={idPublication}
+                        name={photographerData.name}
+                        
                     />
+
                     <Picture src={require(`../assets/photographers/Photographers_ID_Photos/${photographerData.portrait}`)}/>
                 </TopSection>
 
@@ -93,7 +105,7 @@ export function Photographer() {
                 {
                     //Perform a filter to map only on object with corresponding photographerId
                     
-                    listPublication.map((publication) => (
+                    listPublication.map((publication, index) => (
                         <PublicationCard
                             key={publication.id}
                             id={publication.id}
@@ -104,11 +116,14 @@ export function Photographer() {
                             likes={publication.likes} 
                             date={publication.date} 
                             price={publication.price}
-                            onClick={toggleFocus}
+                            onClick={function(event){
+                                toggleFocus();
+                                getPublicationId(index);
+                             }}
                         />
                     ))
                 }
-
+                
                 </CardsContainer>
                 
             </main>

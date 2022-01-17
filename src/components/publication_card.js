@@ -60,7 +60,6 @@ export function PublicationCard({ id, photographerId, title, image, video, likes
             var name = listMatch[0].name.split(' ')[0]
             return name
         }
-        
     }
     const photographerName = getPhotographerNameFromId(data, photographerId)
     //console.log(photographerName)
