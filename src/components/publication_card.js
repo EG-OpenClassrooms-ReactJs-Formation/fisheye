@@ -1,33 +1,27 @@
 import { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { StyledLink } from '../utils/style/Atoms'
+import { StyledLink, PublicationContentImage, PublicationContentVideo } from '../utils/style/Atoms'
 
 import data from '../data/data.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 
+const sizePublication = 200;
+
 const PublicationCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  overflow:hidden;
   
 `
 const PublicationContentContainer = styled.div`
-  height: 150px;
-  width: 150px;
-  
+  height: ${sizePublication}px;
+  width: ${sizePublication}px;
+  border-radius: 40px 40px 0% 0%;
 `
-const PublicationContentImage = styled.img`
-  height: 150px;
-  width: 150px;
-  
-`
-const PublicationContentVideo = styled.video`
-  height: 150px;
-  width: 150px;
-  
-`
+
 const PublicationTextSection = styled.div`
     display: flex;
     align-items: center;
@@ -42,7 +36,7 @@ const PublicationTextStyled = styled.p`
 
 
 
-export function PublicationCard({ id, photographerId, title, image, video, likes, date, price }) {
+export function PublicationCard({ id, photographerId, title, image, video, likes, date, price, onClick }) {
     
     /*
     data for a publication:
@@ -56,9 +50,9 @@ export function PublicationCard({ id, photographerId, title, image, video, likes
     */
     function getPhotographerNameFromId(data, selectedId, image, video){
         var listMatch = data.photographers.filter(x => x.id == selectedId)
-        console.log(listMatch)
-        console.log(image)
-        console.log(video)
+        //console.log(listMatch)
+        //console.log(image)
+        //console.log(video)
         if (listMatch.length == 0){
             return ""
         }
@@ -69,9 +63,9 @@ export function PublicationCard({ id, photographerId, title, image, video, likes
         
     }
     const photographerName = getPhotographerNameFromId(data, photographerId)
-    console.log(photographerName)
+    //console.log(photographerName)
     return (
-      <PublicationCardWrapper>
+      <PublicationCardWrapper onClick={onClick}>
         
         <PublicationContentContainer>
             {
