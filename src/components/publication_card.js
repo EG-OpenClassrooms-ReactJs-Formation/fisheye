@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 
-const sizePublication = 200;
+const sizePublication = 300;
 
 const PublicationCardWrapper = styled.div`
   display: flex;

@@ -11,7 +11,6 @@ const ContactFormContainer = styled.form`
   display: flex;
   flex-direction: column;
 
-  
 `
 const FocusModal = ({ isShowing, hide, listPublication, idPublication, name, onClickRightChevron, onClickLeftChevron}) => isShowing ? ReactDOM.createPortal(
     <React.Fragment>
@@ -31,12 +30,12 @@ const FocusModal = ({ isShowing, hide, listPublication, idPublication, name, onC
                                 <div className="focus-modal-image-container">
                                     <PublicationContentImage src={require(`../../assets/photographers/${name.split(' ')[0]}/${listPublication[idPublication].image}`)}/>
                                 </div>
-                            :
+                                :
                             <PublicationContentVideo controls src={require(`../../assets/photographers/${name.split(' ')[0]}/${listPublication[idPublication].video}`)}/>)
                             : null
                         }
                         
-                        <p>Arc-en-ciel</p>
+                        <p>{listPublication[idPublication].title}</p>
                     </div>
 
                     <div className="focus-modal-icon-column">
