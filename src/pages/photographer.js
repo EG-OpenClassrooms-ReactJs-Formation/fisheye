@@ -58,15 +58,19 @@ export function Photographer() {
         setIdPublication(id)
     }
     function incrementPublicationId(id, listPublication) {
-        
-        setIdPublication(id + 1)
+        if(id < listPublication.length-1) {
+            setIdPublication(id + 1)
+        } else {
+            setIdPublication(0)
+        }
         
     }
     function decrementPublicationId(id, listPublication) {
-        
-        setIdPublication(id - 1)
-        
-        
+        if(id >= 1) {
+            setIdPublication(id - 1)
+        } else {
+            setIdPublication(listPublication.length-1)
+        }
     }
     console.log(idPublication)
     return (
