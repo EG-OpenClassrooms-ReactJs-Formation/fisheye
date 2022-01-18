@@ -57,8 +57,18 @@ export function Photographer() {
     function getPublicationId(id) {
         setIdPublication(id)
     }
-
-
+    function incrementPublicationId(id, listPublication) {
+        
+        setIdPublication(id + 1)
+        
+    }
+    function decrementPublicationId(id, listPublication) {
+        
+        setIdPublication(id - 1)
+        
+        
+    }
+    console.log(idPublication)
     return (
         
         <div className="App">
@@ -89,7 +99,8 @@ export function Photographer() {
                         listPublication={listPublication}
                         idPublication={idPublication}
                         name={photographerData.name}
-                        
+                        onClickRightChevron={incrementPublicationId}
+                        onClickLeftChevron={decrementPublicationId}
                     />
 
                     <Picture src={require(`../assets/photographers/Photographers_ID_Photos/${photographerData.portrait}`)}/>
