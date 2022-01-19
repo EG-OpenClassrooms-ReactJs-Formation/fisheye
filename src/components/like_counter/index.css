@@ -1,0 +1,21 @@
+
+.like-display-wrapper{
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    right: 25px;
+    justify-content: space-around;
+    height: 50px;
+    width: 300px;
+    background-color: #db8876;
+    font-weight: bold;
+}
+
+.like-display-counter{
+    display: flex;
+    align-items: center;
+}
+
+.like-display-price{
+    
+}

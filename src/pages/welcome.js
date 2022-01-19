@@ -7,6 +7,9 @@ export function Welcome() {
         <div className="App">
             <header>
                 <img src={logo} className="logo" />
+                <div>
+                    
+                </div>
                 <h1>Nos photographes</h1>
             </header>
             <main id="main">

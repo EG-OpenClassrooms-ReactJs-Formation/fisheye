@@ -13,6 +13,7 @@ import {useContactModal, useFocusModal} from '../utils/hooks/useModal';
 import ContactFromModal from '../components/modals/contact_form_modal';
 import { DropDownFilter } from '../components/dropdown_filter';
 import FocusModal from '../components/modals/focus_publication_modal';
+import { LikeDisplay } from '../components/like_counter';
 
 
 const TopSection = styled.div`
@@ -42,10 +43,32 @@ const FilterRow = styled.div`
   justify-content: space-between;
 `
 
+const NameText = styled.p`
+  color: #D3573C;
+  font-size: 40px;
+  margin: 0;
+  
+  padding-bottom: 5px;
+`
+
+const LocationText = styled.p`
+  color: #901C1C;
+  font-size: 1.5em;
+  margin-top: 5px;
+  margin-bottom: 10px;
+`
+const CitationText = styled.p`
+font-size: 1.1em;
+  margin-bottom: 5px;
+`
+
+
 export function Photographer() {
     
     const { id: queryId } = useParams()
     const [idPublication, setIdPublication] = useState(0)
+    const [likeCounter, setLikeCounter] = useState(0)
+
     const {isShowingContact, toggleContact} = useContactModal()
     
     const {isShowingFocus, toggleFocus} = useFocusModal()
@@ -54,6 +77,8 @@ export function Photographer() {
     const photographerData = data.photographers.filter(x => x.id == queryId)[0]
     const listPublication = data.media.filter(x => x.photographerId == queryId)
     console.log(idPublication)
+
+
     function getPublicationId(id) {
         setIdPublication(id)
     }
@@ -72,7 +97,13 @@ export function Photographer() {
             setIdPublication(listPublication.length-1)
         }
     }
-    console.log(idPublication)
+    
+    useEffect(() => {
+        setLikeCounter( listPublication
+            .map(item => item.likes)
+            .reduce((prev, curr) => prev + curr, 0))
+    }, []);
+
     return (
         
         <div className="App">
@@ -80,13 +111,15 @@ export function Photographer() {
                 <StyledLink to={"/fisheye/"}>
                     <img src={logo} className="logo" alt={"Fisheye logo"}/>
                 </StyledLink>
+                <div></div>
+                <div></div>
             </header>
             <main id="main">
                 <TopSection>
                     <div>
-                        <p>{photographerData.name}</p>
-                        <p>{photographerData.city}, {photographerData.country}</p>
-                        <p>{photographerData.tagline}</p>
+                        <NameText>{photographerData.name}</NameText>
+                        <LocationText>{photographerData.city}, {photographerData.country}</LocationText>
+                        <CitationText>{photographerData.tagline}</CitationText>
                     </div>
 
                     <ContactButton onClick={toggleContact}/>
@@ -140,7 +173,7 @@ export function Photographer() {
                 }
                 
                 </CardsContainer>
-                
+                <LikeDisplay likeCounter={likeCounter} price={photographerData.price}/>
             </main>
         </div>
     );

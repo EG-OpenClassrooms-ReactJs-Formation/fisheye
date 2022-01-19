@@ -1,17 +1,30 @@
 
+.modal-background {
+    position: fixed;
+    top: 0;
+    background-color: rgba(131, 126, 126, 0.774);
+    width: 100%;
+    height: 100%;
+}
+
 .modal-wrapper {
     color: black;
     position: fixed;
     top: 150px;
-    left: 33%;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
     z-index: 1050;
-    width: 35%;
+    width: 400px;
     /*height: 100%;*/
     overflow-x: hidden;
     overflow-y: auto;
     outline: 0;
     background-color: #db8876;
-    padding: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
 }
 .modal-header {
     display: flex;
@@ -20,11 +33,16 @@
 .modal-title h1 {
     color: black;
 }
+
+.modal-close-container {
+    padding-top: 16px;
+}
+
 .modal-close-button {
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-size: 3rem;
+    
     line-height: 1;
-    color: #fff;
+    color: white;
     background-color: #db8876;
     opacity: 1;
     cursor: pointer;

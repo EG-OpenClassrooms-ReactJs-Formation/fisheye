@@ -32,6 +32,7 @@ const PublicationLikeSection = styled.div`
 `
 const PublicationTextStyled = styled.p`
   color: #901C1C;
+  margin-left: 5px;
 `
 
 
@@ -90,8 +91,6 @@ export function PublicationCard({ id, photographerId, title, image, video, likes
                 </PublicationTextStyled>
             </PublicationLikeSection>
         </PublicationTextSection>
-
-        
 
       </PublicationCardWrapper>
     )
