@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fisheye/static/css/main.ae507827.css",
-    "main.js": "/fisheye/static/js/main.03fb1214.js",
+    "main.js": "/fisheye/static/js/main.0f328ff0.js",
     "static/js/787.1fefd227.chunk.js": "/fisheye/static/js/787.1fefd227.chunk.js",
     "static/media/Travel_Rock_Mountains.mp4": "/fisheye/static/media/Travel_Rock_Mountains.d323a511834ae4817540.mp4",
     "static/media/Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.mp4": "/fisheye/static/media/Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.102763bcd07a14e39b86.mp4",
@@ -26,10 +26,10 @@
     "static/media/Portrait_Alexandra.jpg": "/fisheye/static/media/Portrait_Alexandra.2e0db1d10d665443d0ef.jpg",
     "static/media/Travel_SunsetonCanals.jpg": "/fisheye/static/media/Travel_SunsetonCanals.d2f058f7755307c76b98.jpg",
     "static/media/Event_ProductPitch.jpg": "/fisheye/static/media/Event_ProductPitch.beff55778364a62d0945.jpg",
-    "static/media/Travel _Adventure_Door.jpg": "/fisheye/static/media/Travel _Adventure_Door.9a8516d49f7bfc514a8d.jpg",
+    "static/media/Travel_Adventure_Door.jpg": "/fisheye/static/media/Travel_Adventure_Door.9a8516d49f7bfc514a8d.jpg",
     "static/media/MimiKeel.jpg": "/fisheye/static/media/MimiKeel.f20a8678bf1d0df4ee23.jpg",
     "static/media/Travel_OpenMountain.jpg": "/fisheye/static/media/Travel_OpenMountain.9eb5df3bfc840cb29f5a.jpg",
-    "static/media/Architecure_Contrast.jpg": "/fisheye/static/media/Architecure_Contrast.14bc1068f9dd4d160b41.jpg",
+    "static/media/Architecture_Contrast.jpg": "/fisheye/static/media/Architecture_Contrast.14bc1068f9dd4d160b41.jpg",
     "static/media/Sport_Jump.jpg": "/fisheye/static/media/Sport_Jump.3fd141e1ec2f9b325c60.jpg",
     "static/media/Travel_Road_into_Hill.jpg": "/fisheye/static/media/Travel_Road_into_Hill.91e335767522b90328ae.jpg",
     "static/media/EllieRoseWilkens.jpg": "/fisheye/static/media/EllieRoseWilkens.ecf6410c44e9333162e5.jpg",
@@ -73,11 +73,11 @@
     "static/media/logo.png": "/fisheye/static/media/logo.951d8b0a7fbc4aad9a62.png",
     "index.html": "/fisheye/index.html",
     "main.ae507827.css.map": "/fisheye/static/css/main.ae507827.css.map",
-    "main.03fb1214.js.map": "/fisheye/static/js/main.03fb1214.js.map",
+    "main.0f328ff0.js.map": "/fisheye/static/js/main.0f328ff0.js.map",
     "787.1fefd227.chunk.js.map": "/fisheye/static/js/787.1fefd227.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ae507827.css",
-    "static/js/main.03fb1214.js"
+    "static/js/main.0f328ff0.js"
   ]
 }
