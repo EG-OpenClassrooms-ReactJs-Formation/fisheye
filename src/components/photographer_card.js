@@ -36,7 +36,10 @@ export function PhotographerCard({ portrait, name, location, citation, price, id
       <StyledLink to={`/fisheye/profile/${id}`}>
         <article>
             
-          <Picture src={require(`../assets/photographers/Photographers_ID_Photos/${portrait}`)}/>
+          <Picture 
+            src={require(`../assets/photographers/Photographers_ID_Photos/${portrait}`)}
+            alt={name}
+            />
           <h2>{name}</h2>
           <TextContainer >
             <LocationText>{location}</LocationText>

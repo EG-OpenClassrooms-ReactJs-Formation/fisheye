@@ -8,6 +8,7 @@
 }
 
 .modal-wrapper {
+    border-radius: 5px;
     color: black;
     position: fixed;
     top: 150px;

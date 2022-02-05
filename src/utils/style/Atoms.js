@@ -15,6 +15,14 @@ export const Picture = styled.img`
   height: ${pictureSize}px;
   width: ${pictureSize}px;
   border-radius: ${pictureSize}px;
+  ${(props) =>
+    props.sizes &&
+    `
+    height: ${props.sizes}px;
+    width: ${props.sizes}px;
+    margin-right: 5%;
+    margin-left: 10%;
+    `}
 `
 
 export const PublicationContentImage = styled.img`

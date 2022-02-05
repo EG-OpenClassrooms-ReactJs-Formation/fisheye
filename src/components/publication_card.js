@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { Component, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { StyledLink, PublicationContentImage, PublicationContentVideo, breakPointTablet } from '../utils/style/Atoms'
@@ -39,10 +39,13 @@ const PublicationTextStyled = styled.p`
   color: #901C1C;
   margin-left: 5px;
 `
+const StyledLikeInput = styled.input`
+    display: none;
+    position: relative;
+`
 
 
-
-export function PublicationCard({ id, photographerId, title, image, video, likes, date, price, onClick }) {
+export function PublicationCard({ id, photographerId, title, image, video, likes, date, price, onClick, onClickLike, likeCounter }) {
     
     /*
     data for a publication:
@@ -67,17 +70,37 @@ export function PublicationCard({ id, photographerId, title, image, video, likes
             return name
         }
     }
+    
+    const [checked, setChecked] = useState(false);
+    const icon = checked ? faHeart : farHeart;
     const photographerName = getPhotographerNameFromId(data, photographerId)
     //console.log(photographerName)
+    function onCheck(){
+      setChecked(!checked)
+      if(checked){
+        onClickLike(likeCounter - 1)
+      }
+      else{
+        onClickLike(likeCounter + 1)
+      }
+    }
     return (
-      <PublicationCardWrapper onClick={onClick}>
+      <PublicationCardWrapper>
         
-        <PublicationContentContainer>
+        <PublicationContentContainer onClick={onClick}>
             {
             photographerName != ""?
                 (image != null ?
-                <PublicationContentImage src={require(`../assets/photographers/${photographerName}/${image}`)}/>:
-                <PublicationContentVideo controls src={require(`../assets/photographers/${photographerName}/${video}`)}/>)
+                <PublicationContentImage 
+                  src={require(`../assets/photographers/${photographerName}/${image}`)} 
+                  alt={title}
+                
+                />:
+                <PublicationContentVideo
+                 
+                src={require(`../assets/photographers/${photographerName}/${video}`)}
+                alt={title}
+                />)
                 :
                 null
             }
@@ -92,11 +115,11 @@ export function PublicationCard({ id, photographerId, title, image, video, likes
                     {likes}
                 </PublicationTextStyled>
                 <PublicationTextStyled>
-                    <FontAwesomeIcon icon={faHeart} />
+                    
+                    <FontAwesomeIcon icon={icon} onClick={onCheck}/>
                 </PublicationTextStyled>
             </PublicationLikeSection>
         </PublicationTextSection>
-
       </PublicationCardWrapper>
     )
   }

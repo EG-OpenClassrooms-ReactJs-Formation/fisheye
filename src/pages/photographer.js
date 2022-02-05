@@ -27,9 +27,12 @@ const TopSection = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-top: 25px;
+    padding-bottom: 25px;
     margin-left: 10%;
     margin-right: 10%;
     justify-content: space-between;
+    background-color: #fafafa;
     align-items: center;
     margin-bottom: 100px;
     @media (max-width: ${breakPointTablet}px) {
@@ -71,6 +74,7 @@ const FilterRow = styled.div`
 `
 
 const TextPhotographerWrapper = styled.div`
+  margin-left: 5%;
   @media (max-width: ${breakPointTablet}px) {
     display: flex;
     flex-direction: column;
@@ -117,13 +121,13 @@ export function Photographer() {
     function getPublicationId(id) {
         setIdPublication(id)
     }
+
     function incrementPublicationId(id, listPublication) {
         if(id < listPublication.length-1) {
             setIdPublication(id + 1)
         } else {
             setIdPublication(0)
         }
-        
     }
     function decrementPublicationId(id, listPublication) {
         if(id >= 1) {
@@ -132,7 +136,11 @@ export function Photographer() {
             setIdPublication(listPublication.length-1)
         }
     }
-    
+    /*
+    function incrementLikeCounter(totalLikes) {
+        setLikeCounter(totalLikes + 1);
+    }*/
+
     useEffect(() => {
         setLikeCounter( listPublication
             .map(item => item.likes)
@@ -175,7 +183,11 @@ export function Photographer() {
                         onClickLeftChevron={decrementPublicationId}
                     />
 
-                    <Picture src={require(`../assets/photographers/Photographers_ID_Photos/${photographerData.portrait}`)}/>
+                    <Picture 
+                        src={require(`../assets/photographers/Photographers_ID_Photos/${photographerData.portrait}`)}
+                        alt={photographerData.name}
+                        sizes={170}
+                    />
                 </TopSection>
 
                 {/* TODO add a filter component */}
@@ -202,7 +214,9 @@ export function Photographer() {
                             onClick={function(event){
                                 toggleFocus();
                                 getPublicationId(index);
-                             }}
+                            }}
+                            onClickLike={setLikeCounter}
+                            likeCounter={likeCounter}
                         />
                     ))
                 }
