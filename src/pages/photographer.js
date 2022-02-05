@@ -7,7 +7,7 @@ import { PhotographerCard } from '../components/photographer_card';
 import data from '../data/data.json'
 import logo from '../assets/images/logo.png'
 import { PublicationCard } from '../components/publication_card';
-import { Picture, StyledLink } from '../utils/style/Atoms';
+import { breakPointTablet, Picture, StyledLink } from '../utils/style/Atoms';
 
 import {useContactModal, useFocusModal} from '../utils/hooks/useModal';
 import ContactFromModal from '../components/modals/contact_form_modal';
@@ -17,22 +17,49 @@ import { LikeDisplay } from '../components/like_counter';
 
 
 const TopSection = styled.div`
-    display: grid;
+
+    /* display: grid;
     gap: 24px;
     
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    justify-items: center;
+    justify-items: center; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 100px;
+    @media (max-width: ${breakPointTablet}px) {
+        flex-direction: column-reverse;
+        height: 500px;
+        margin-bottom: 50px;
+    }
 `
 
 const CardsContainer = styled.div`
-  display: grid;
+  
+  /* display: grid;
   gap: 24px;
   //grid-template-rows: 350px 350px;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  justify-items: center;
+  justify-items: center; */
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  justify-content: space-between;
+  @media (max-width: ${breakPointTablet}px) {
+    flex-direction: column;
+  }
+ 
 `
 
 const FilterRow = styled.div`
@@ -41,6 +68,14 @@ const FilterRow = styled.div`
   margin-bottom: 100px;
   width: 350px;
   justify-content: space-between;
+`
+
+const TextPhotographerWrapper = styled.div`
+  @media (max-width: ${breakPointTablet}px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const NameText = styled.p`
@@ -116,11 +151,11 @@ export function Photographer() {
             </header>
             <main id="main">
                 <TopSection>
-                    <div>
+                    <TextPhotographerWrapper>
                         <NameText>{photographerData.name}</NameText>
                         <LocationText>{photographerData.city}, {photographerData.country}</LocationText>
                         <CitationText>{photographerData.tagline}</CitationText>
-                    </div>
+                    </TextPhotographerWrapper>
 
                     <ContactButton onClick={toggleContact}/>
                     {/* <button onClick={toggle}>Show Modal</button> */}

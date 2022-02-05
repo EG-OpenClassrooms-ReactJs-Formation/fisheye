@@ -1,6 +1,22 @@
 import { PhotographerCard } from '../components/photographer_card';
 import data from '../data/data.json'
 import logo from '../assets/images/logo.png' // relative path to image
+import styled from 'styled-components'
+const PhotographerSection = styled.div`
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: space-between;
+    @media (max-width: 830px) {
+        flex-direction: column;
+    }
+`
+
 export function Welcome() {
     const portraitPath = 'assets/photographers'
     return (

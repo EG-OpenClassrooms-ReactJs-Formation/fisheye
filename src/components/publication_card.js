@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { StyledLink, PublicationContentImage, PublicationContentVideo } from '../utils/style/Atoms'
+import { StyledLink, PublicationContentImage, PublicationContentVideo, breakPointTablet } from '../utils/style/Atoms'
 
 import data from '../data/data.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,14 +11,19 @@ import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 const sizePublication = 300;
 
 const PublicationCardWrapper = styled.div`
+  min-width: 320px;
+  width: 30%;
   display: flex;
   flex-direction: column;
   overflow:hidden;
   
+  @media (max-width: ${breakPointTablet}px) {
+    width: 100%;
+  }
 `
 const PublicationContentContainer = styled.div`
   height: ${sizePublication}px;
-  width: ${sizePublication}px;
+  //width: ${sizePublication}px;
   border-radius: 40px 40px 0% 0%;
 `
 

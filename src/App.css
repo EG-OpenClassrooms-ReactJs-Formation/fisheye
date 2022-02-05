@@ -24,10 +24,23 @@ h1 {
 }
 
 .photographer_section {
+    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
+    
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin-top: 100px;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: space-between;
+    @media (max-width: 830px) {
+        flex-direction: column;
+    } */
+    
 }
 
 .photographer_section article {

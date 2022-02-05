@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 const borderRadiusValue = 5;
 const pictureSize = 250;
-
+export const breakPointTablet = 830;
 
 export const StyledLink = styled(Link)`
 padding: 10px 15px;
