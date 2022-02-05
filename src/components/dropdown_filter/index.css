@@ -2,9 +2,10 @@
 .select-wrapper {
     position: relative;
     user-select: none;
+    display: flex;
     width: 200px;
-    
-    
+    background: #901c1c;
+    align-items: center;
 }
 .select-wrapper div{
     color: white;
@@ -16,14 +17,15 @@
     flex-direction: column;
     border: none;
     
-    
 }
 .select__trigger {
-    position: relative;
+    -webkit-appearance: none;
+    position: absolute;
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: 0 22px;
+    
     font-size: 20px;
     font-weight: 300;
     color: #3b3b3b;
@@ -35,6 +37,7 @@
     
 }
 .custom-options {
+    -webkit-appearance: none;
     position: absolute;
     display: block;
     top: 100%;
@@ -55,22 +58,7 @@
     pointer-events: all;
 }
 
-.custom-option {
-    position: relative;
-    display: block;
-    padding: 0 22px 0 22px;
-    font-size: 22px;
-    font-weight: 300;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding-bottom: 35px;
-    height: 60px;
-    color: #3b3b3b;
-    line-height: 60px;
-    cursor: pointer;
-    transition: all 0.5s;
-    border-top: 3px solid white;
-}
+
 
 .custom-option:hover {
     cursor: pointer;
@@ -84,7 +72,8 @@
 
 .arrow {
     color: white;
-    position: relative;
+    position: absolute;
+    right: 10px;
     height: 15px;
     width: 15px;
 }

@@ -1,23 +1,41 @@
-import { Component } from 'react'
+import { Component, useState } from 'react'
 import styled from 'styled-components'
 import './index.css';
-export function DropDownFilter() {
+export function DropDownFilter({selectedOption, setSelectedOption}) {
     
+    const choiceFilterList = [
+        {
+            id: 1,
+            name:"Popularité"
+        },
+        {
+            id: 2,
+            name:"Date"
+        },
+        {
+            id: 3,
+            name:"Titre"
+        },
+    ]
+    const listOfOptions = choiceFilterList.filter(x => x.name !== selectedOption)
     
-
+    function handleChange(e){
+        setSelectedOption(e.target.value)
+    }
+    
+    console.log(selectedOption)
     return (
         <div className="select-wrapper">
-            <div className="select">
-                <div className="select__trigger"><span>Popularité</span>
-                    <div className="arrow"></div>
-                </div>
-                <div className="custom-options">
-                    {/* <span class="custom-option selected" data-value="popularité">Popularité</span> */}
-                    
-                    <div className="custom-option" data-value="date"><p>Date</p></div>
-                    <div className="custom-option" data-value="titre"><p>Titre</p></div>
-                </div>
-            </div>
+            <select className="select__trigger" value={selectedOption} onChange={handleChange} >
+                
+            <option style={{display:'none'}} className={"custom-options"} value={selectedOption}>{selectedOption}</option>
+                {
+                listOfOptions.map((choice, index) =>(
+                    <option key={choice.id} className={"custom-options"} value={choice.name}>{choice.name}</option>
+                ))
+                }
+            </select>
+            <div className={"arrow"}></div>
         </div>
     )
   }

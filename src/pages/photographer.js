@@ -108,16 +108,17 @@ export function Photographer() {
     const [idPublication, setIdPublication] = useState(0)
     const [likeCounter, setLikeCounter] = useState(0)
 
+    const [selectedOption, setSelectedOption] = useState("Popularité")
+
     const {isShowingContact, toggleContact} = useContactModal()
     
     const {isShowingFocus, toggleFocus} = useFocusModal()
     //console.log(data.media.filter(x => x.photographerId == queryId))
     
     const photographerData = data.photographers.filter(x => x.id == queryId)[0]
-    const listPublication = data.media.filter(x => x.photographerId == queryId)
+    
     console.log(idPublication)
-
-
+    
     function getPublicationId(id) {
         setIdPublication(id)
     }
@@ -140,12 +141,14 @@ export function Photographer() {
     function incrementLikeCounter(totalLikes) {
         setLikeCounter(totalLikes + 1);
     }*/
+    const listPublication = data.media.filter(x => x.photographerId == queryId)
 
     useEffect(() => {
         setLikeCounter( listPublication
             .map(item => item.likes)
             .reduce((prev, curr) => prev + curr, 0))
     }, []);
+    
 
     return (
         
@@ -193,8 +196,8 @@ export function Photographer() {
                 {/* TODO add a filter component */}
                 <FilterRow>
                     <h3>Trier par</h3>
-                    <DropDownFilter/>
-
+                    <DropDownFilter selectedOption={selectedOption} setSelectedOption={setSelectedOption}/>
+                    
                 </FilterRow>
                 <CardsContainer>
                 {
