@@ -112,7 +112,11 @@ export function PublicationCard({ id, photographerId, title, image, video, likes
 
             <PublicationLikeSection>
                 <PublicationTextStyled>
-                    {likes}
+                    {checked ?
+                    likes+1
+                    :
+                    likes
+                  }
                 </PublicationTextStyled>
                 <PublicationTextStyled>
                     
