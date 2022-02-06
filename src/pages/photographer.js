@@ -182,7 +182,7 @@ export function Photographer() {
                         <CitationText>{photographerData.tagline}</CitationText>
                     </TextPhotographerWrapper>
 
-                    <ContactButton onClick={toggleContact}/>
+                    <ContactButton onClick={toggleContact} text={'Contactez-moi'}/>
                     {/* <button onClick={toggle}>Show Modal</button> */}
                     <ContactFromModal
                         isShowing={isShowingContact}

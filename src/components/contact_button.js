@@ -12,12 +12,16 @@ const ButtonStyled = styled.button`
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    &:hover {
+        color: black;
+        background-color: #D3573C;
+  }
 `
 
-export function ContactButton({onClick}) {
+export function ContactButton({onClick, text}) {
     
     return (
-        <ButtonStyled onClick={onClick}>Contactez-moi</ButtonStyled>
+        <ButtonStyled onClick={onClick}>{text}</ButtonStyled>
     );
 }
 

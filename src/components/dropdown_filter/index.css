@@ -6,16 +6,19 @@
     width: 200px;
     background: #901c1c;
     align-items: center;
+    
 }
 .select-wrapper div{
     color: white;
     
 }
-.select {
+select {
+    border-radius: 5px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px;
     
 }
 .select__trigger {
@@ -25,7 +28,7 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    
+    color: white;
     font-size: 20px;
     font-weight: 300;
     color: #3b3b3b;
@@ -36,35 +39,29 @@
     border: none;
     
 }
-.custom-options {
-    -webkit-appearance: none;
-    position: absolute;
-    display: block;
-    top: 100%;
-    left: 0;
-    right: 0;
-    border: 2px solid #394a6d;
-    border-top: 0;
+option {
+    font-size: 8px;
     background: #901c1c;
-    transition: all 0.5s;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    z-index: 2;
-}
-.select-wrapper:hover .custom-options {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: all;
+    height: 20px;
 }
 
 
 
-.custom-option:hover {
+option:hover {
     cursor: pointer;
     background-color: #631414;
+    
 }
-.custom-option.selected {
+option:before {
+    content: ">";
+    font-size: 8px;
+    display: none;
+    padding-right: 10px;
+    padding-left: 5px;
+    color: #fff;
+}
+
+option.selected {
     color: white;
     background-color: #305c91;
 }
@@ -97,3 +94,4 @@
     transform: rotate(-45deg);
     background-color: white;
 }
+

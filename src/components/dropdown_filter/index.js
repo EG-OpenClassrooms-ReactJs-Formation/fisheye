@@ -22,20 +22,33 @@ export function DropDownFilter({selectedOption, setSelectedOption}) {
     function handleChange(e){
         setSelectedOption(e.target.value)
     }
+
+    const coloredText = {
+        color:'white',
+        fontSize: "18px",
+        borderColor: "white",
+        
+    }
+
+
+    // Logical code behind dropdown
     
     console.log(selectedOption)
     return (
-        <div className="select-wrapper">
-            <select className="select__trigger" value={selectedOption} onChange={handleChange} >
+        
+        <div className="select-wrapper ">
+            <select style={{color:'white'}} className="select__trigger" value={selectedOption} onChange={handleChange} >
                 
             <option style={{display:'none'}} className={"custom-options"} value={selectedOption}>{selectedOption}</option>
                 {
                 listOfOptions.map((choice, index) =>(
-                    <option key={choice.id} className={"custom-options"} value={choice.name}>{choice.name}</option>
+                    <option style={{...coloredText}} key={choice.id} className={"custom-options"} value={choice.name}>{choice.name}</option>
                 ))
                 }
             </select>
             <div className={"arrow"}></div>
         </div>
+        
+        
     )
   }

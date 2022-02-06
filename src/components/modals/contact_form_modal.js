@@ -10,6 +10,24 @@ const ContactFormContainer = styled.form`
 
   
 `
+function onClickModalButton(){
+  
+  const firstNameField = document.getElementById("fname")
+  const lastNameField = document.getElementById("lname")
+  const emailField = document.getElementById("email")
+  const messageField = document.getElementById("message")
+  console.log("firstNameField is : " + firstNameField.value)
+  console.log("lastNameField is : " + lastNameField.value)
+  console.log("emailField is : " + emailField.value)
+  console.log("messageField is : " + messageField.value)
+}
+
+// document.querySelector("#form_button").addEventListener("submit", function(event) {
+//   console.log("Désolé ! preventDefault() ne vous laissera pas cocher ceci.");
+//   event.preventDefault();
+// }, false);
+
+
 const ContactFromModal = ({ isShowing, hide, name }) => isShowing ? ReactDOM.createPortal(
     <React.Fragment>
       <div className="modal-background">
@@ -37,7 +55,7 @@ const ContactFromModal = ({ isShowing, hide, name }) => isShowing ? ReactDOM.cre
                   <input type="email" id="email"/>
                   <label htmlFor="lname">Votre message</label>
                   <input type="text" id="message" name="message" defaultValue=""/>
-                  <ContactButton />
+                  <ContactButton id={'form_button'} onClick={onClickModalButton} text={'Contactez-moi'}/>
               
               </ContactFormContainer>
               
