@@ -116,8 +116,22 @@ export function Photographer() {
     //console.log(data.media.filter(x => x.photographerId == queryId))
     
     const photographerData = data.photographers.filter(x => x.id == queryId)[0]
-    
-    console.log(idPublication)
+    const listPublicationUnsorted = data.media.filter(x => x.photographerId == queryId)
+    var listPublication = listPublicationUnsorted
+    // implement and use different sort methods
+
+    // sort by alphabetic order for the title
+    if(selectedOption === "Titre"){
+        listPublication = listPublicationUnsorted.sort((a, b) => (a.title > b.title) ? 1 : -1)
+    }
+    if(selectedOption === "Popularité"){
+        listPublication = listPublicationUnsorted.sort(function(a, b){return a.likes-b.likes}).reverse()
+    }
+    if(selectedOption === "Date"){
+        listPublication = listPublicationUnsorted.sort(function(a, b){return Date(a.date)-Date(b.date)}).reverse()
+    }
+
+    console.log(listPublication)
     
     function getPublicationId(id) {
         setIdPublication(id)
@@ -141,7 +155,7 @@ export function Photographer() {
     function incrementLikeCounter(totalLikes) {
         setLikeCounter(totalLikes + 1);
     }*/
-    const listPublication = data.media.filter(x => x.photographerId == queryId)
+    
 
     useEffect(() => {
         setLikeCounter( listPublication
