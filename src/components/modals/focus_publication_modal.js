@@ -12,6 +12,7 @@ const ContactFormContainer = styled.form`
   flex-direction: column;
 
 `
+
 const FocusModal = ({ isShowing, hide, listPublication, idPublication, name, onClickRightChevron, onClickLeftChevron}) => isShowing ? ReactDOM.createPortal(
     <React.Fragment>
         <div className="focus-modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">

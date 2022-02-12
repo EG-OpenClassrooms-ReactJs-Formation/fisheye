@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Component, useState } from 'react'
 import styled from 'styled-components'
 import './index.css';
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 export function DropDownFilter({selectedOption, setSelectedOption}) {
     
     const choiceFilterList = [
@@ -17,10 +19,11 @@ export function DropDownFilter({selectedOption, setSelectedOption}) {
             name:"Titre"
         },
     ]
+    const [show, setShow] = useState(false)
     const listOfOptions = choiceFilterList.filter(x => x.name !== selectedOption)
     
-    function handleChange(e){
-        setSelectedOption(e.target.value)
+    function handleChange(name){
+        setSelectedOption(name)
     }
 
     const coloredText = {
@@ -36,17 +39,39 @@ export function DropDownFilter({selectedOption, setSelectedOption}) {
     console.log(selectedOption)
     return (
         
-        <div className="select-wrapper ">
+        <div className="select-wrapper " >
+            <ul>
+            <li className="first-li">
+                {selectedOption}
+            </li>
+            {
+                show ?
+                listOfOptions.map((choice, index) =>(
+                    
+                    <li key={choice.id} className={"not-first-li"} value={choice.name} onClick={() =>handleChange(choice.name)}>{choice.name}</li>
+                ))
+                :
+                null
+            }
+            {/* 
             <select style={{color:'white'}} className="select__trigger" value={selectedOption} onChange={handleChange} >
                 
-            <option style={{display:'none'}} className={"custom-options"} value={selectedOption}>{selectedOption}</option>
+                <option style={{display:'none'}} className={"custom-options"} value={selectedOption}>{selectedOption}</option>
                 {
                 listOfOptions.map((choice, index) =>(
                     <option style={{...coloredText}} key={choice.id} className={"custom-options"} value={choice.name}>{choice.name}</option>
                 ))
                 }
-            </select>
-            <div className={"arrow"}></div>
+            </select> 
+            */}
+            </ul>
+            {
+                show ?
+                <FontAwesomeIcon size={'lg'} icon={faAngleDown} className="arrow" onClick ={() => setShow(!show)}></FontAwesomeIcon>
+                :
+                <FontAwesomeIcon size={'lg'} icon={faAngleUp} className="arrow" onClick ={() => setShow(!show)}></FontAwesomeIcon>
+            }
+            
         </div>
         
         

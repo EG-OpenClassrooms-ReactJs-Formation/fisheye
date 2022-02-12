@@ -2,11 +2,10 @@
 .select-wrapper {
     position: relative;
     user-select: none;
-    display: flex;
     width: 200px;
     background: #901c1c;
     align-items: center;
-    
+    border-radius: 5px;
 }
 .select-wrapper div{
     color: white;
@@ -39,15 +38,30 @@ select {
     border: none;
     
 }
-option {
-    font-size: 8px;
+ul{
+    padding-left:0px;
+    margin-left: 10px;
+    
+}
+
+li{
+    color: white;
+    
+    list-style: none;
+    font-size: 24px;
     background: #901c1c;
-    height: 20px;
+    height: 40px;
+    width: 100%;
+}
+.not-first-li {
+    border-top: white;
+    margin-top: 20px;
+    
 }
 
 
 
-option:hover {
+.not-first-li:hover {
     cursor: pointer;
     background-color: #631414;
     
@@ -61,37 +75,36 @@ option:before {
     color: #fff;
 }
 
-option.selected {
+li .selected {
     color: white;
     background-color: #305c91;
 }
+.first-li{
+    margin-top: 20px;
+}
 
+/*
+.arrow:active {
+    
+    animation-name: spin;
+    animation-duration: 100ms;
+    animation-iteration-count: initial;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}*/
 
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(180deg);
+    }
+}
 .arrow {
     color: white;
     position: absolute;
     right: 10px;
-    height: 15px;
-    width: 15px;
-}
-.arrow::before, .arrow::after {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    width: 0.15rem;
-    height: 100%;
-    transition: all 0.5s;
-    color: white;
-}
-.arrow::before {
-    left: -5px;
-    transform: rotate(45deg);
-    background-color: white;
+    top: 25px;
     
 }
-.arrow::after {
-    left: 5px;
-    transform: rotate(-45deg);
-    background-color: white;
-}
-
