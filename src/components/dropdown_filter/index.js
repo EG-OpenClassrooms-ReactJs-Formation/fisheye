@@ -39,7 +39,7 @@ export function DropDownFilter({selectedOption, setSelectedOption}) {
     console.log(selectedOption)
     return (
         
-        <div className="select-wrapper " >
+        <div className="select-wrapper" role="listbox" aria-labelledby="Drop down filter" >
             <ul>
             <li className="first-li">
                 {selectedOption}

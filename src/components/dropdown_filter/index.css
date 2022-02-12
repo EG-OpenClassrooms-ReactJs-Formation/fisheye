@@ -46,16 +46,20 @@ ul{
 
 li{
     color: white;
-    
+    border-radius: 2px;
     list-style: none;
     font-size: 24px;
     background: #901c1c;
     height: 40px;
-    width: 100%;
+    
 }
 .not-first-li {
-    border-top: white;
-    margin-top: 20px;
+    border-top: solid white;
+    padding-top: 20px;
+    border-width: 2px;
+    margin-left: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
     
 }
 
@@ -81,6 +85,7 @@ li .selected {
 }
 .first-li{
     margin-top: 20px;
+    margin-left: 20px;
 }
 
 /*

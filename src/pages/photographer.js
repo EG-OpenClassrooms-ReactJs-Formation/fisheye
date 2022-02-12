@@ -20,7 +20,6 @@ const TopSection = styled.div`
 
     /* display: grid;
     gap: 24px;
-    
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-items: center; */
@@ -182,7 +181,7 @@ export function Photographer() {
                         <CitationText>{photographerData.tagline}</CitationText>
                     </TextPhotographerWrapper>
 
-                    <ContactButton onClick={toggleContact} text={'Contactez-moi'}/>
+                    <ContactButton onClick={toggleContact} text={'Contactez-moi'} aria-labelledby="Contact me button"/>
                     {/* <button onClick={toggle}>Show Modal</button> */}
                     <ContactFromModal
                         isShowing={isShowingContact}
