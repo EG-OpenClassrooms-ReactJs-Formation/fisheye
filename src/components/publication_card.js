@@ -8,14 +8,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 
-const sizePublication = 300;
+const sizePublication = 300;    
 
-const PublicationCardWrapper = styled.div`
+const PublicationCardWrapper = styled.article`
   min-width: 320px;
   width: 30%;
   display: flex;
   flex-direction: column;
   overflow:hidden;
+  &:after{
+    content: "";
+    max-width: 30%;
+  }
   
   @media (max-width: ${breakPointTablet}px) {
     width: 100%;
@@ -41,6 +45,7 @@ const PublicationTextStyled = styled.p`
 `
 const StyledLikeInput = styled.input`
     display: none;
+    flex: auto;
     position: relative;
 `
 
@@ -85,7 +90,7 @@ export function PublicationCard({ id, photographerId, title, image, video, likes
       }
     }
     return (
-      <PublicationCardWrapper>
+      <PublicationCardWrapper tabIndex='0'>
         
         <PublicationContentContainer onClick={onClick}>
             {

@@ -14,13 +14,15 @@ const ContactFormContainer = styled.form`
 `
 
 const FocusModal = ({ isShowing, hide, listPublication, idPublication, name, onClickRightChevron, onClickLeftChevron}) => isShowing ? ReactDOM.createPortal(
+    
     <React.Fragment>
         <div className="focus-modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
             <div className="focus-modal-container">
                 <div className="focus-modal-row">
                     <div className="focus-modal-icon-column">
                         <FontAwesomeIcon icon={faTimes} color="white" size="4x"/>
-                        <FontAwesomeIcon icon={faChevronLeft} onClick={()=> onClickLeftChevron(idPublication, listPublication)} size="4x"/>
+                        <FontAwesomeIcon icon={faChevronLeft} 
+                            onClick={()=> onClickLeftChevron(idPublication, listPublication)} size="4x"/>
                         <FontAwesomeIcon icon={faTimes} color="white" size="4x"/>
                     </div>
                     <div className="focus-modal-column">

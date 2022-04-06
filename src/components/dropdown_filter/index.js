@@ -53,7 +53,8 @@ export function DropDownFilter({selectedOption, setSelectedOption}) {
                 :
                 null
             }
-            {/* 
+            {
+            /*
             <select style={{color:'white'}} className="select__trigger" value={selectedOption} onChange={handleChange} >
                 
                 <option style={{display:'none'}} className={"custom-options"} value={selectedOption}>{selectedOption}</option>
@@ -62,8 +63,9 @@ export function DropDownFilter({selectedOption, setSelectedOption}) {
                     <option style={{...coloredText}} key={choice.id} className={"custom-options"} value={choice.name}>{choice.name}</option>
                 ))
                 }
-            </select> 
-            */}
+            </select>
+            */
+            }
             </ul>
             {
                 show ?
