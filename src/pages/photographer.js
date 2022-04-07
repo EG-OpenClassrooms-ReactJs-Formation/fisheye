@@ -130,7 +130,7 @@ export function Photographer() {
         listPublication = listPublicationUnsorted.sort(function(a, b){return Date(a.date)-Date(b.date)}).reverse()
     }
 
-    console.log(listPublication)
+    //console.log(listPublication)
     
     function getPublicationId(id) {
         setIdPublication(id)
@@ -160,12 +160,34 @@ export function Photographer() {
         setLikeCounter( listPublication
             .map(item => item.likes)
             .reduce((prev, curr) => prev + curr, 0))
+        
     }, []);
     
+    //document.addEventListener('keyup', logKey)
 
+    function logKey(e) {
+        
+        //console.log(e.code)
+        if(e.code === "Enter" && !isShowingFocus && !isShowingContact){
+            toggleFocus()
+        }
+        if(e.code === "ArrowRight" && isShowingFocus){
+            incrementPublicationId(idPublication, listPublication)
+        }
+        if(e.code === "ArrowLeft" && isShowingFocus){
+            decrementPublicationId(idPublication, listPublication)
+        }
+        if(e.code === "Escape" && isShowingFocus){
+            toggleFocus()
+        }
+        if(e.code === "Escape" && isShowingContact){
+            toggleContact()
+        }
+        
+    }
     return (
         
-        <div className="App">
+        <div className="App" onKeyUp={(e)=>logKey(e)}>
             <header>
                 <StyledLink to={"/fisheye/"}>
                     <img src={logo} className="logo" alt={"Fisheye logo"}/>

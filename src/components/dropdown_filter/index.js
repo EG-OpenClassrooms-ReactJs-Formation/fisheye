@@ -36,7 +36,7 @@ export function DropDownFilter({selectedOption, setSelectedOption}) {
 
     // Logical code behind dropdown
     
-    console.log(selectedOption)
+    //console.log(selectedOption)
     return (
         
         <div className="select-wrapper" role="listbox" aria-labelledby="Drop down filter" >
