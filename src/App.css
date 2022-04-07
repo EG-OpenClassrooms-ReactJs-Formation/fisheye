@@ -11,7 +11,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 90px;
-    min-width: 1150px;
+    
 }
 
 h1 {
@@ -30,17 +30,6 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 100px;
-    align-items: center;
-    margin-left: 10%;
-    margin-right: 10%;
-    justify-content: space-between;
-    @media (max-width: 830px) {
-        flex-direction: column;
-    } */
     
 }
 
