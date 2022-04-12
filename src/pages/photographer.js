@@ -18,11 +18,6 @@ import { LikeDisplay } from '../components/like_counter';
 
 const TopSection = styled.div`
 
-    /* display: grid;
-    gap: 24px;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    justify-items: center; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -34,6 +29,7 @@ const TopSection = styled.div`
     background-color: #fafafa;
     align-items: center;
     margin-bottom: 100px;
+    
     @media (max-width: ${breakPointTablet}px) {
         flex-direction: column-reverse;
         height: 500px;
@@ -43,13 +39,6 @@ const TopSection = styled.div`
 
 const CardsContainer = styled.div`
   
-  /* display: grid;
-  gap: 24px;
-  //grid-template-rows: 350px 350px;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  justify-items: center; */
-  
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -57,11 +46,11 @@ const CardsContainer = styled.div`
   align-items: center;
   margin-left: 10%;
   margin-right: 10%;
-  justify-content: space-between;
+  gap: 5%;
+  //justify-content: space-between;
   @media (max-width: ${breakPointTablet}px) {
     flex-direction: column;
   }
- 
 `
 
 const FilterRow = styled.div`
@@ -74,6 +63,7 @@ const FilterRow = styled.div`
 
 const TextPhotographerWrapper = styled.div`
   margin-left: 5%;
+  
   @media (max-width: ${breakPointTablet}px) {
     display: flex;
     flex-direction: column;
@@ -95,6 +85,7 @@ const LocationText = styled.p`
   margin-top: 5px;
   margin-bottom: 10px;
 `
+
 const CitationText = styled.p`
 font-size: 1.1em;
   margin-bottom: 5px;
@@ -242,7 +233,7 @@ export function Photographer() {
                         <PublicationCard
                             key={publication.id}
                             id={publication.id}
-                            photographerId={publication.photographerId} 
+                            photographerId={publication.photographerId}
                             title={publication.title} 
                             image={publication.image}
                             video={publication.video}

@@ -18,11 +18,11 @@ const PhotographerSection = styled.div`
 `
 
 export function Welcome() {
-    const portraitPath = 'assets/photographers'
+    
     return (
         <div className="App">
-            <header>
-                <img src={logo} className="logo" />
+            <header className=".header-welcome">
+                <img src={logo} className="logo" alt="fisheye logo"/>
                 <div>
                     
                 </div>
