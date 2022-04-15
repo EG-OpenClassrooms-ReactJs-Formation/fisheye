@@ -15,6 +15,9 @@
     display: flex;
     align-items: center;
 }
+.like-display-counter-number{
+    margin-right: 3px;
+}
 
 .like-display-price{
     
