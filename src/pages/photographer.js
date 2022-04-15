@@ -7,7 +7,7 @@ import { PhotographerCard } from '../components/photographer_card';
 import data from '../data/data.json'
 import logo from '../assets/images/logo.png'
 import { PublicationCard } from '../components/publication_card';
-import { breakPointTablet, Picture, StyledLink } from '../utils/style/Atoms';
+import { breakPointTablet, StyledLink } from '../utils/style/Atoms';
 
 import {useContactModal, useFocusModal} from '../utils/hooks/useModal';
 import ContactFromModal from '../components/modals/contact_form_modal';
@@ -46,8 +46,8 @@ const CardsContainer = styled.div`
   align-items: center;
   margin-left: 10%;
   margin-right: 10%;
-  gap: 5%;
-  //justify-content: space-between;
+  gap: 20px;
+  justify-content: center;
   @media (max-width: ${breakPointTablet}px) {
     flex-direction: column;
   }
@@ -91,6 +91,30 @@ font-size: 1.1em;
   margin-bottom: 5px;
 `
 
+const PictureTopContainer = styled.div`
+  height: 170px;
+  width: 170px;
+  margin-right: 5%;
+  border-radius: 170px;
+  overflow: hidden;
+  @media (max-width: ${breakPointTablet}px) {
+    margin-right: 0%;
+}
+`
+const PictureTop = styled.img`
+  
+  min-height: 100%;
+  width: 100%;
+  object-fit: cover;
+  
+  ${(props) =>
+    props.sizes &&
+    `
+    height: ${props.sizes}px;
+    width: ${props.sizes}px;
+    
+    `}
+`
 
 export function Photographer() {
     
@@ -155,13 +179,13 @@ export function Photographer() {
     }, []);
     
     //document.addEventListener('keyup', logKey)
-
+    
     function logKey(e) {
         
-        //console.log(e.code)
+        /*
         if(e.code === "Enter" && !isShowingFocus && !isShowingContact){
             toggleFocus()
-        }
+        }*/
         if(e.code === "ArrowRight" && isShowingFocus){
             incrementPublicationId(idPublication, listPublication)
         }
@@ -174,11 +198,12 @@ export function Photographer() {
         if(e.code === "Escape" && isShowingContact){
             toggleContact()
         }
-        
     }
+    
     return (
-        
+        //<div className="App">
         <div className="App" onKeyUp={(e)=>logKey(e)}>
+        
             <header>
                 <StyledLink to={"/fisheye/"}>
                     <img src={logo} className="logo" alt={"Fisheye logo"}/>
@@ -211,12 +236,13 @@ export function Photographer() {
                         onClickRightChevron={incrementPublicationId}
                         onClickLeftChevron={decrementPublicationId}
                     />
-
-                    <Picture 
-                        src={require(`../assets/photographers/Photographers_ID_Photos/${photographerData.portrait}`)}
-                        alt={photographerData.name}
-                        sizes={170}
-                    />
+                    <PictureTopContainer>
+                        <PictureTop 
+                            src={require(`../assets/photographers/Photographers_ID_Photos/${photographerData.portrait}`)}
+                            alt={photographerData.name}
+                            sizes={170}
+                        />
+                    </PictureTopContainer>
                 </TopSection>
 
                 {/* TODO add a filter component */}
@@ -251,7 +277,7 @@ export function Photographer() {
                 }
                 
                 </CardsContainer>
-                <LikeDisplay likeCounter={likeCounter} price={photographerData.price}/>
+                <LikeDisplay likeCounter={likeCounter} price={photographerData.price} tabIndex='0'/>
             </main>
         </div>
     );

@@ -22,7 +22,8 @@ const FocusModal = ({ isShowing, hide, listPublication, idPublication, name, onC
                     <div className="focus-modal-icon-column">
                         <FontAwesomeIcon icon={faTimes} color="white" size="4x"/>
                         <FontAwesomeIcon icon={faChevronLeft} 
-                            onClick={()=> onClickLeftChevron(idPublication, listPublication)} size="4x"/>
+                            onClick={()=> onClickLeftChevron(idPublication, listPublication)} size="4x"
+                        />
                         <FontAwesomeIcon icon={faTimes} color="white" size="4x"/>
                     </div>
                     <div className="focus-modal-column">
@@ -42,8 +43,12 @@ const FocusModal = ({ isShowing, hide, listPublication, idPublication, name, onC
                     </div>
 
                     <div className="focus-modal-icon-column">
-                        <FontAwesomeIcon icon={faTimes} size="4x" onClick={hide}/>
-                        <FontAwesomeIcon icon={faChevronRight} onClick={()=> onClickRightChevron(idPublication, listPublication)} size="4x"/>
+                        <FontAwesomeIcon icon={faTimes} size="4x" 
+                            onClick={hide}
+                        />
+                        <FontAwesomeIcon icon={faChevronRight} 
+                            onClick={()=> onClickRightChevron(idPublication, listPublication)}
+                            size="4x"/>
                         <FontAwesomeIcon icon={faTimes} color="white" size="4x"/>
                     </div>
                 </div>

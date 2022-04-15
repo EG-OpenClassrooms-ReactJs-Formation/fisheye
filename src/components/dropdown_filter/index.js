@@ -41,14 +41,32 @@ export function DropDownFilter({selectedOption, setSelectedOption}) {
         
         <div className="select-wrapper" role="listbox" aria-labelledby="Drop down filter" >
             <ul>
-            <li className="first-li">
+            <li className="first-li" tabIndex='0'
+                onKeyDown={(e)=>{
+                    console.log(e)
+                    if(e.code === "Enter"){
+                        setShow(!show)
+                    }
+                }}
+            >  
                 {selectedOption}
             </li>
             {
                 show ?
                 listOfOptions.map((choice, index) =>(
                     
-                    <li key={choice.id} className={"not-first-li"} value={choice.name} onClick={() =>handleChange(choice.name)}>{choice.name}</li>
+                    <li key={choice.id} className={"not-first-li"} value={choice.name} 
+                        onClick={() =>handleChange(choice.name)}
+                        onKeyDown={(e)=>{
+                            console.log(e)
+                            if(e.code === "Enter"){
+                                handleChange(choice.name)
+                            }
+                          }}
+                        tabIndex='0'
+                    >
+                            {choice.name}
+                    </li>
                 ))
                 :
                 null

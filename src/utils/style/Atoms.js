@@ -12,9 +12,12 @@ text-decoration: none;
 `
 
 export const Picture = styled.img`
-  height: ${pictureSize}px;
-  width: ${pictureSize}px;
-  border-radius: ${pictureSize}px;
+  //height: ${pictureSize}px;
+  //width: ${pictureSize}px;
+  min-height: 100%;
+  width: 100%;
+  object-fit: cover;
+  //border-radius: ${pictureSize}px;
   ${(props) =>
     props.sizes &&
     `
@@ -23,6 +26,14 @@ export const Picture = styled.img`
     margin-right: 5%;
     margin-left: 10%;
     `}
+`
+
+export const PictureContainer = styled.div`
+  height: ${pictureSize}px;
+  width: ${pictureSize}px;
+  border-radius: ${pictureSize}px;
+  overflow: hidden;
+  
 `
 
 export const PublicationContentImage = styled.img`

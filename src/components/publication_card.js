@@ -90,9 +90,18 @@ export function PublicationCard({ id, photographerId, title, image, video, likes
       }
     }
     return (
-      <PublicationCardWrapper tabIndex='0'>
+      <PublicationCardWrapper >
         
-        <PublicationContentContainer onClick={onClick}>
+        <PublicationContentContainer 
+          onClick={onClick} 
+          tabIndex='0'
+          onKeyDown={(e)=>{
+            console.log(e)
+            if(e.code === "Enter"){
+              onClick()
+            }
+          }}
+        >
             {
             photographerName != ""?
                 (image != null ?
@@ -125,7 +134,18 @@ export function PublicationCard({ id, photographerId, title, image, video, likes
                 </PublicationTextStyled>
                 <PublicationTextStyled>
                     
-                    <FontAwesomeIcon icon={icon} onClick={onCheck}/>
+                    <FontAwesomeIcon 
+                      icon={icon} 
+                      onClick={onCheck} 
+                      tabIndex='0' 
+                      onKeyDown={(e)=>{
+                        console.log(e)
+                        if(e.code === "Enter"){
+                          onCheck()
+                        }
+                      }}
+                    
+                    />
                 </PublicationTextStyled>
             </PublicationLikeSection>
         </PublicationTextSection>
